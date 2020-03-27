@@ -9,6 +9,7 @@ from sqlalchemy.orm import relationship
 
 from owtf.db.model_base import Model
 from owtf.utils.timer import timer
+from . import test_group
 
 
 class Plugin(Model):

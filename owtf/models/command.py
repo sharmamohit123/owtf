@@ -8,6 +8,7 @@ from sqlalchemy.ext.hybrid import hybrid_property
 
 from owtf.db.model_base import Model
 from owtf.db.session import flush_transaction
+from . import plugin
 
 
 class Command(Model):
@@ -17,7 +18,7 @@ class Command(Model):
     end_time = Column(DateTime)
     success = Column(Boolean, default=False)
     target_id = Column(Integer, ForeignKey("targets.id"))
-    plugin_key = Column(String)
+    plugin_key = Column(String, ForeignKey("plugins.key"))
     modified_command = Column(String)
     original_command = Column(String, primary_key=True)
 
